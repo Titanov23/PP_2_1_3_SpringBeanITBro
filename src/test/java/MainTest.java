@@ -22,10 +22,10 @@ public class MainTest {
             AnimalsCage bean =
                     applicationContext.getBean(AnimalsCage.class);
             if (i == 0) {
-                time = Long.parseLong(bean.getClass().getName());
+                time = bean.getTimer().getTime();
                 continue;
             }
-            Assert.assertEquals("Тест провален, не корректная реализация бинов.", time, bean.getClass().getName().clone());
+            Assert.assertEquals("Тест провален, не корректная реализация бинов.", time, bean.getTimer().getTime().longValue());
             System.out.println(time);
         }
     }

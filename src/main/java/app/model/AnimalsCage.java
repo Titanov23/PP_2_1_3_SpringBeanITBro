@@ -6,10 +6,19 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class AnimalsCage {
-
-    @Qualifier("dog")
     @Autowired
+    @Qualifier("dog")
+
     private Animal animal;
+    private Timer nanoTime;
+
+    public AnimalsCage(Timer nanoTime) {
+        this.nanoTime = nanoTime;
+    }
+    public Timer getTimer() {
+       return nanoTime;
+    }
+
 
     public void whatAnimalSay() {
         System.out.println("Say:");
